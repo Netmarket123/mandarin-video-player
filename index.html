@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+	<meta charset="utf-8" />
+	<title>Styled Video Player with Subtitles - Mozilla</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+	<!-- jQuery library -->
+	<script src="js/jquery.min.js"></script>
+	<!-- <script src="js/jquery-3.4.1.js"></script> -->
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css" />
+	<!-- <link rel="stylesheet" href="css/bootstrap.css" /> -->
+	<!-- [if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv-printshiv.min.js" type="text/javascript"></script><![endif] -->
+</head>
+<body>
+	<h1>Test</h1>
+	<div class="container mx-auto">
+		
+		<div class="mx-auto">
+			<figure id="videoContainer" data-fullscreen="false">
+				<script>
+					function myFunctio() {
+					}
+				</script>
+				<video id="video" controls preload="metadata" onloadeddata="myFunction()">
+					<source src="video/sintel-short.mp4" type="video/mp4">
+					<source src="video/sintel-short.webm" type="video/webm">
+					<track label="chines" srclang="ch" src="subtitles/vtt/chines.vtt" default>
+					<track label="pinyin" srclang="py" src="subtitles/vtt/pinyi.vtt">
+					<track label="English" srclang="en" src="subtitles/vtt/sintel-en.vtt">
+				</video>
+				<div class="w-100 h-20 position-relative timeline" id="timeline">
+					<div class="seek-bar" id="seek_bar"></div>
+				</div>
+				<div id="video-controls1" class="captions" data-state="hidden">
+					<div><p class="subtitle" id="sub_title1"><p></div>
+					<button type="button" class="btn btn-primary position-absolute right-0 top-0 btn-subtitle-toggle" onclick="toggleShow(0, this)" data-toggle="button" aria-pressed="false" autocomplete="off">hide</button>
+				</div>
+				<div id="video-controls2" class="captions" data-state="hidden">
+					<div><p class="subtitle" id="sub_title2"><p></div>
+					<button type="button" class="btn btn-primary position-absolute right-0 top-0 btn-subtitle-toggle" onclick="toggleShow(1, this)" data-toggle="button" aria-pressed="false" autocomplete="off">hide</button>
+				</div>
+				<div id="video-controls3" class="captions" data-state="hidden">
+					<div><p class="subtitle" id="sub_title3"><p></div>
+					<button type="button" class="btn btn-primary position-absolute right-0 top-0 btn-subtitle-toggle" onclick="toggleShow(2, this)" data-toggle="button" aria-pressed="false" autocomplete="off">hide</button>
+				</div>
+				
+				<div id="video-controls" class="dev1" data-state="hidden">
+				</div>
+				<div id="playback_controls" class="d-flex justify-content-around align-items-center playback-controls" data-state="visible">
+					<button id="back" type="button" data-state="back" onclick="frameback()">Back</button>
+					<button id="playpause" type="button" data-state="play">Play/Pause</button>
+					<button id="stop" type="button" data-state="stop">Stop</button>
+					<button id="skip" type="button" data-state="skip" onclick="frameskip()">Skip</button>
+					<button id="loop" type="button" data-state="loop" onclick="frameloop()">Loop</button>
+					<!-- <button id="slow" type="button" data-state="slow" onclick="frameslow()">Slow</button> -->
+					<button id="mute" type="button" data-state="mute">Mute/Unmute</button>
+					<button id="volinc" type="button" data-state="volup">Vol+</button>
+					<button id="voldec" type="button" data-state="voldown">Vol-</button>
+					<button id="fs" type="button" data-state="go-fullscreen">Fullscreen</button>
+
+
+				</div>
+			</figure>
+		</div>
+	</div>
+	<script src="js/video-player.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/mandarinspot.js" charset="UTF-8"></script>
+	<script>mandarinspot.annotate('#test_subtitle', {phonetic: 'pinyin', show: true});</script>
+</body>
+</html>
